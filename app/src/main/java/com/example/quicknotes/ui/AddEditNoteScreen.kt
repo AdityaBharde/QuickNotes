@@ -16,7 +16,7 @@ import com.example.quicknotes.data.Note
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddEditNoteScreen(
-    note: Note?, // Null if adding a new note
+    note: Note?,
     onSave: (Note) -> Unit,
     onNavigateUp: () -> Unit
 ) {
@@ -27,7 +27,6 @@ fun AddEditNoteScreen(
         topBar = {
             TopAppBar(
                 title = { Text(if (note == null) "Add Note" else "Edit Note") },
-                // Add a back button to the top app bar
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(
@@ -36,7 +35,6 @@ fun AddEditNoteScreen(
                         )
                     }
                 },
-                // Add a "Save" action button to the top app bar
                 actions = {
                     TextButton(
                         onClick = {
